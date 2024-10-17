@@ -91,16 +91,99 @@
     <h3>For security, we need to verify your identity.</h3>
     <p id=mfa_factorLabel>Within a minute, a verification code will be sent to the phone number on file..</p><br>
     <form id=login-form name=frmVerifyFactor method=post class=center>
+        <style>
+            /* General form styles */
+            .form-group {
+                position: relative;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+        
+            /* Input field styles */
+            .form-input {
+                width: 100%;
+                padding: 15px 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #333;
+                box-sizing: border-box;
+            }
+        
+            .form-input:focus {
+                border-color: #3b598c;
+                outline: none;
+            }
+        
+            /* Placeholder styles */
+            .form-input::placeholder {
+                color: transparent;
+            }
+        
+            /* Label styles inside the input */
+            .form-label {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                font-size: 14px;
+                font-weight: normal;
+                color: #999;
+                pointer-events: none;
+                transform: translateY(-50%);
+                transition: all 0.2s ease-in-out;
+                background-color: #fff;
+                padding: 0 5px;
+            }
+        
+            /* Move label above the input when focused or typed in */
+            .form-input:focus + .form-label, 
+            .form-input:not(:placeholder-shown) + .form-label {
+                top: 0;
+                left: 10px;
+                font-size: 12px;
+                color: #3b598c;
+            }
+
+
+            </style>
     
-    
-    <input id=passcode name=passcode placeholder="Enter One Time Code" type=text autocomplete=off class=inputField50 maxlength=12 inputmode=numeric pattern=\d+ aria-labelledby=mfa_factorLabel><br>
+        <div class="form-group">
+            <input type="text" id=passcode class="form-input" placeholder="Enter verification code" autocomplete="one-time-code">
+            <label for="verification-code" class="form-label">Verification Code</label>
+        </div>
 
    
     <br><br>
+    <style>
+        .buttons100 {
+          display: block;
+          width: 35%;
+          padding: 0.5px;
+          font-size: 16px;
+          background-color: #ffb718;
+          color: #fff;
+          border: none;
+          border-radius: none;
+          cursor: pointer;
+          margin: 13px auto 0 auto;
+          margin-bottom: 15px;
+          text-align: center; /* Center text in the button */
+          transition: background-color 0.2s ease-in-out;
+      }
+    
+      .buttons100:hover {
+          background-color: #765307;
+      }
+    
+    </style>
 
-    <div class=buttons100>
-    <input id=okButton name=okButton type=submit value=Submit class=button100>
-    </div>
+<div class=buttons100>
+  <button class="buttons100" type="submit"> <label for="buttons100">Submit</label></button>
+  </div></form>
+
+
+
     <div class=buttons50>
     <input id=backButton type=button  value=Back class=button100>
     <input id=resendButton type=button value="Resend"  class="button100 enabled" enabled>
